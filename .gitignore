@@ -1,0 +1,10 @@
+.vs/
+.vscode/
+.build/
+Build/
+MSBuild/
+cmake/
+mathematics/
+stk/include/stk/internal/
+CMakeSettings.json
+CMakePresets.json
