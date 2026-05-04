@@ -23,7 +23,7 @@ endif()
 
 # ============== 根目录选项 ==============
 option(BUILD_STK "Build STK library" ON)
-option(BUILD_TESTS "Build tests" OFF)
+
 
 # ============== GTest 配置 ==============
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
@@ -119,6 +119,8 @@ message(STATUS "  Library:         ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}")
 message(STATUS "  Archive:         ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}")
 message(STATUS "============================================================")
 message(STATUS "")
+
+enable_testing()
 
 # ============== 子目录 ==============
 if(BUILD_STK)

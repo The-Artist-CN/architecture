@@ -1,18 +1,15 @@
-#ifndef STK_RBTREE_H
-#define STK_RBTREE_H
+#pragma once
 
 #ifdef __cplusplus
 
-#include "internal/rbtree.h"
+#include "internal/cpp/stk_rbtree.hpp"
 
 #else
 
-#include "internal/rbtree_int.h"
-#include "internal/rbtree_float.h"
-#include "internal/rbtree_double.h"
-#include "internal/rbtree_pointer.h"
-#include "internal/rbtree_string.h"
-
-#endif
+#include "internal/stk_rbtree_int.h"
+#include "internal/stk_rbtree_float.h"
+#include "internal/stk_rbtree_double.h"
+#include "internal/stk_rbtree_pointer.h"
+#include "internal/stk_rbtree_string.h"
 
 #endif

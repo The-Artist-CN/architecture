@@ -3,14 +3,14 @@
 
 #ifdef __cplusplus
 
-#include "internal/cpp/vector.h"
+#include "internal/cpp/stk_vector.hpp"
 
 #else
 
-#include "internal/vector_int.h"
-#include "internal/vector_float.h"
-#include "internal/vector_double.h"
-#include "internal/vector_pointer.h"
-#include "internal/vector_string.h"
+#include "internal/stk_vector_int.h"
+#include "internal/stk_vector_float.h"
+#include "internal/stk_vector_double.h"
+#include "internal/stk_vector_pointer.h"
+#include "internal/stk_vector_string.h"
 
 #endif

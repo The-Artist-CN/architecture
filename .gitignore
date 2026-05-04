@@ -1,5 +1,7 @@
 .vs/
 .vscode/
+.tags
+Testing/
 build/
 Build/
 MSBuild/
