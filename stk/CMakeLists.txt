@@ -43,13 +43,14 @@ set(STRING_C_HEADERS
     ${STK_SRC_DIR}/stk_string.h
 )
 
+# 只保留 .hpp 和 .tcc 文件
 set(CPP_INTERNAL_HEADERS
-    ${STK_SRC_CXX_DIR}/stk_string.hpp
-    ${STK_SRC_CXX_DIR}/stk_string.tcc
     ${STK_SRC_CXX_DIR}/stk_vector.hpp
     ${STK_SRC_CXX_DIR}/stk_vector.tcc
     ${STK_SRC_CXX_DIR}/stk_rbtree.hpp
     ${STK_SRC_CXX_DIR}/stk_rbtree.tcc
+    ${STK_SRC_CXX_DIR}/stk_string.hpp
+    ${STK_SRC_CXX_DIR}/stk_string.tcc
 )
 
 # 复制所有头文件
