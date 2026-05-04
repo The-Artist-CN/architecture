@@ -18,7 +18,9 @@ file(MAKE_DIRECTORY ${INTERNAL_INCLUDE_DIR})
 
 # ============== 内部头文件 ==============
 set(C_INTERNAL_HEADERS
+    ${STK_SRC_DIR}/export.h
     ${STK_SRC_DIR}/rbtree_config.h
+    ${STK_SRC_DIR}/vector_config.h
 )
 
 set(VECTOR_C_HEADERS
@@ -94,7 +96,7 @@ if(BUILD_VECTOR)
         if(MSVC)
             target_compile_options(stk_vector_${TYPE} PRIVATE /W4 /wd4013 /wd4047 /wd4996)
         else()
-            target_compile_options(stk_vector_${TYPE} PRIVATE -Wall -Wextra -Wpedantic)
+            target_compile_options(stk_vector_${TYPE} PRIVATE -Wall -Wextra -Wpedantic -Wno-error=implicit-function-declaration -fPIC)
         endif()
 
         list(APPEND ALL_OBJECTS $<TARGET_OBJECTS:stk_vector_${TYPE}>)
@@ -134,7 +136,7 @@ if(BUILD_RBTREE)
         if(MSVC)
             target_compile_options(stk_rbtree_${TYPE} PRIVATE /W4 /wd4013 /wd4047 /wd4996)
         else()
-            target_compile_options(stk_rbtree_${TYPE} PRIVATE -Wall -Wextra -Wpedantic)
+            target_compile_options(stk_rbtree_${TYPE} PRIVATE -Wall -Wextra -Wpedantic -Wno-error=implicit-function-declaration -fPIC)
         endif()
 
         list(APPEND ALL_OBJECTS $<TARGET_OBJECTS:stk_rbtree_${TYPE}>)
@@ -159,7 +161,7 @@ if(BUILD_STRING)
     if(MSVC)
         target_compile_options(stk_string PRIVATE /W4 /wd4013 /wd4047 /wd4996)
     else()
-        target_compile_options(stk_string PRIVATE -Wall -Wextra -Wpedantic)
+        target_compile_options(stk_string PRIVATE -Wall -Wextra -Wpedantic -Wno-error=implicit-function-declaration -fPIC)
     endif()
 
     list(APPEND ALL_OBJECTS $<TARGET_OBJECTS:stk_string>)
@@ -233,7 +235,7 @@ if(BUILD_CLIB)
     
     # ============== 安装 ==============
     install(TARGETS stk
-        EXPORT stkTargets
+        EXPORT StkTargets
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION lib
         ARCHIVE DESTINATION lib
@@ -259,19 +261,19 @@ if(BUILD_CLIB)
     # ============== 导出配置 ==============
     include(CMakePackageConfigHelpers)
     
-    install(EXPORT stkTargets
-        FILE stkTargets.cmake
+    install(EXPORT StkTargets
+        FILE StkTargets.cmake
         NAMESPACE stk::
         DESTINATION lib/cmake/stk
     )
     
     write_basic_package_version_file(
-        ${CMAKE_BINARY_DIR}/stkConfigVersion.cmake
+        ${CMAKE_BINARY_DIR}/StkConfigVersion.cmake
         VERSION ${PROJECT_VERSION}
         COMPATIBILITY AnyNewerVersion
     )
     
-    install(FILES ${CMAKE_BINARY_DIR}/stkConfigVersion.cmake
+    install(FILES ${CMAKE_BINARY_DIR}/StkConfigVersion.cmake
         DESTINATION lib/cmake/stk
     )
 endif()

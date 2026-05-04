@@ -1,8 +1,6 @@
 // _Vector_Int.c
 #include "vector_int.h"
 
-
-
 static void VecInt_Grow(VecInt* v) {
     size_t new_cap = v->capacity == 0 ? VECTOR_DEFAULT_CAPACITY : v->capacity * VECTOR_GROW_FACTOR;
     int* new_data = (int*)realloc(v->data, sizeof(int) * new_cap);

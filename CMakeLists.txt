@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(Arch VERSION 0.0.1 LANGUAGES C CXX)
+project(architecture VERSION 0.0.1 LANGUAGES C CXX)
 
 # ============== 编译标准 ==============
 set(CMAKE_CXX_STANDARD 17)
@@ -54,7 +54,7 @@ endif()
 
 
 # ============== 安装头文件 ==============
-install(DIRECTORY Stk/include/stk/
+install(DIRECTORY stk/include/stk/
     DESTINATION include/stk
     FILES_MATCHING PATTERN "*.h"
     PATTERN ".git*" EXCLUDE
@@ -64,19 +64,19 @@ install(DIRECTORY Stk/include/stk/
 include(CMakePackageConfigHelpers)
 
 write_basic_package_version_file(
-    ${CMAKE_BINARY_DIR}/stkConfigVersion.cmake
+    ${CMAKE_BINARY_DIR}/StkConfigVersion.cmake
     VERSION ${PROJECT_VERSION}
     COMPATIBILITY AnyNewerVersion
 )
 
-install(EXPORT stkTargets
-    FILE stkTargets.cmake
+install(EXPORT StkTargets
+    FILE StkTargets.cmake
     NAMESPACE stk::
     DESTINATION lib/cmake/stk
 )
 
 install(FILES
-    ${CMAKE_BINARY_DIR}/stkConfigVersion.cmake
+    ${CMAKE_BINARY_DIR}/StkConfigVersion.cmake
     DESTINATION lib/cmake/stk
 )
 
@@ -102,8 +102,8 @@ endif()
 
 # ============== 配置信息 ==============
 message(STATUS "")
-message(STATUS "==================== stk Configuration ====================")
-message(STATUS "Project:           stk ${PROJECT_VERSION}")
+message(STATUS "==================== Stk Configuration ====================")
+message(STATUS "Project:           Stk ${PROJECT_VERSION}")
 message(STATUS "Platform:          ${CMAKE_SYSTEM_NAME}")
 message(STATUS "Architecture:      ${CMAKE_SYSTEM_PROCESSOR}")
 message(STATUS "Build type:        ${CMAKE_BUILD_TYPE}")
@@ -122,6 +122,6 @@ message(STATUS "")
 
 # ============== 子目录 ==============
 if(BUILD_STK)
-    add_subdirectory(Stk)
+    add_subdirectory(stk)
 endif()
 

@@ -2,9 +2,13 @@
 #define _STK_RBTREE_IMPLEMENTATION_CXX_H
 
 
-#include <Color.h>
 
 namespace stk {
+
+		enum class Color {
+			RED,
+			BLACK
+		};
 
 		template<typename T>
 		struct RBNode
